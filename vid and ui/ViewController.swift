@@ -30,8 +30,10 @@ class ViewController: UIViewController {
         // Create blocks.
         container = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         var posX: CGFloat = 0.0
+        var blockHeight: CGFloat = 30.0
+        
         for index in 0...9 {
-            let block = UIView(frame: CGRect(x: posX, y: 0, width: 20, height: 100))
+            let block = UIView(frame: CGRect(x: posX, y: 100 - blockHeight, width: 20, height: blockHeight))
             block.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
             block.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
             block.layer.borderWidth = 1.0
@@ -44,6 +46,7 @@ class ViewController: UIViewController {
             blocks.append(block)
             container.addSubview(block)
             posX = posX + 28
+            blockHeight = blockHeight + 10
         }
         // This grows the container view so that it contains all it's subviews - so it can e centered properly.
         container.sizeToFitCustom()
