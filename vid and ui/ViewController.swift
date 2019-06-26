@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var mySlider: UISlider!
     var blocks:[UIView] = [UIView]()
     var container: UIView!
+    var pianoContainer: UIView!
+    var pianoKeys:[UIView] = [UIView]()
     
     override func viewDidLoad()
     {
@@ -50,13 +52,61 @@ class ViewController: UIViewController {
         }
         // This grows the container view so that it contains all it's subviews - so it can e centered properly.
         container.sizeToFitCustom()
-        container.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
+        container.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2 - 50)
         self.view.addSubview(container)
         
         // Initial UI evaluation slider value is 0, so 1st block will be lit up.
         sliderChanged(mySlider)
+        
+        createPianoKeys()
     }
 
+    func createPianoKeys()
+    {
+        pianoContainer = UIView(frame: CGRect(x: 20, y: 100, width: self.view.frame.width - 40, height: 150))
+        var posX: CGFloat = 0.0
+        for index in 0...6 {
+            let thisKey = UIView(frame: CGRect(x: posX, y: 0, width: 30, height: 150))
+            thisKey.tag = index
+            thisKey.backgroundColor = UIColor.white
+            thisKey.layer.borderColor = UIColor.lightGray.cgColor
+            thisKey.layer.borderWidth = 4.0
+            pianoContainer.addSubview(thisKey)
+            pianoKeys.append(thisKey)
+            posX = posX + 24 //30 - border / 2
+        }
+        
+        // We don't need to store these in array, we don't affect them.
+        var posX2: CGFloat = 19.5
+        for index in 7...11 {
+            let thisKey = UIView(frame: CGRect(x: posX2, y: 0, width: 14, height: 100))
+            thisKey.backgroundColor = UIColor.lightGray
+            posX2 = posX2 + 24
+            
+            // Skip to the right if needed.
+            if index == 8 {
+                posX2 = posX2 + 24
+            }
+            pianoContainer.addSubview(thisKey)
+        }
+        
+        pianoContainer.sizeToFitCustom()
+        pianoContainer.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2 + container.frame.height / 2 + 60)
+        self.view.addSubview(pianoContainer)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func playVideo()
     {
         guard let path = Bundle.main.path(forResource: "jellyfish", ofType:"m4v") else {
