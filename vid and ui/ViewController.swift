@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var pianoContainer: UIView!
     var pianoKeys:[UIView] = [UIView]()
     
+    // Create an empty array typed to PianoKey - which we will fill up.
+    var testPianoKeys:[PianoKey] = [PianoKey]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -59,8 +62,46 @@ class ViewController: UIViewController {
         sliderChanged(mySlider)
         
         createPianoKeys()
+        
+        // TESTING ONLY.
+        
+        let testContainer = UIView(frame: CGRect(x: 20, y: 430, width: 10, height: 10))
+        testContainer.backgroundColor = UIColor.red.withAlphaComponent(0.2)
+        var positionX:CGFloat = 0.0
+        for _ in 0...6 {
+            let foo = PianoKey(isAMainKey: true)
+            foo.frame.origin.x = positionX
+            foo.frame.origin.y = 0
+            testContainer.addSubview(foo)
+            testPianoKeys.append(foo)
+            positionX += foo.frame.width - foo.layer.borderWidth
+        }
+        // Create sub keys.
+        var centerX: CGFloat = 28
+        for index in 0...4 {
+            let foo = PianoKey(isAMainKey: false)
+            foo.center.x = centerX
+            foo.frame.origin.y = 0
+            testContainer.addSubview(foo)
+            centerX += 26
+            if index == 1 {
+                centerX += 26
+            }
+        }
+        testContainer.sizeToFitCustom()
+        testContainer.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
+        testContainer.frame.origin.x = 5
+        testContainer.frame.origin.y = pianoContainer.frame.origin.y
+        self.view.addSubview(testContainer)
     }
 
+    
+    
+    
+    
+    
+    
+    
     func createPianoKeys()
     {
         pianoContainer = UIView(frame: CGRect(x: 20, y: 100, width: self.view.frame.width - 40, height: 150))
@@ -94,10 +135,6 @@ class ViewController: UIViewController {
         pianoContainer.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2 + container.frame.height / 2 + 60)
         self.view.addSubview(pianoContainer)
     }
-    
-    
-    
-    
     
     
     

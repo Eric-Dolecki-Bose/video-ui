@@ -13,6 +13,7 @@
 		5F7132B822C2A8D4008F11B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7132B722C2A8D4008F11B1 /* Assets.xcassets */; };
 		5F7132BB22C2A8D4008F11B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7132B922C2A8D4008F11B1 /* LaunchScreen.storyboard */; };
 		5F7132C322C2AC5C008F11B1 /* jellyfish.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 5F7132C222C2AC1F008F11B1 /* jellyfish.m4v */; };
+		5F7132CB22C4EE8B008F11B1 /* PianoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7132CA22C4EE8B008F11B1 /* PianoKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5F7132BA22C2A8D4008F11B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F7132BC22C2A8D4008F11B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F7132C222C2AC1F008F11B1 /* jellyfish.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = jellyfish.m4v; sourceTree = "<group>"; };
+		5F7132CA22C4EE8B008F11B1 /* PianoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				5F7132C222C2AC1F008F11B1 /* jellyfish.m4v */,
 				5F7132B022C2A8D2008F11B1 /* AppDelegate.swift */,
 				5F7132B222C2A8D2008F11B1 /* ViewController.swift */,
+				5F7132CA22C4EE8B008F11B1 /* PianoKey.swift */,
 				5F7132B422C2A8D2008F11B1 /* Main.storyboard */,
 				5F7132B722C2A8D4008F11B1 /* Assets.xcassets */,
 				5F7132B922C2A8D4008F11B1 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				5F7132B322C2A8D2008F11B1 /* ViewController.swift in Sources */,
 				5F7132B122C2A8D2008F11B1 /* AppDelegate.swift in Sources */,
+				5F7132CB22C4EE8B008F11B1 /* PianoKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
